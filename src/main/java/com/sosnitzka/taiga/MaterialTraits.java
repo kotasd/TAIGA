@@ -47,6 +47,7 @@ public class MaterialTraits {
     public static final AbstractTrait reviving = new TraitReviving();
     public static final AbstractTrait melting = new TraitMelting();
     public static final AbstractTrait traditional = new TraitTraditional();
+    public static final AbstractTrait nbt = new TraitNBT();
 
 
     public static Material arcanite = new Material("arcanite", TextFormatting.LIGHT_PURPLE).addTrait(arcane, HeadMaterialStats.TYPE).addTrait(blind, HandleMaterialStats.TYPE);
@@ -71,7 +72,7 @@ public class MaterialTraits {
     public static Material nitronite = new Material("nitronite", TextFormatting.YELLOW).addTrait(uncertain);
     public static Material cryptogen = new Material("cryptogen", TextFormatting.DARK_GREEN).addTrait(randomize);
     public static Material seismodium = new Material("seismodium", TextFormatting.WHITE).addTrait(heroic).addTrait(fragile);
-    public static Material aegisalt = new Material("aegisalt", TextFormatting.AQUA).addTrait(analysing);
+    public static Material aegisalt = new Material("aegisalt", TextFormatting.AQUA).addTrait(analysing).addTrait(nbt);
     public static Material ultranite = new Material("ultranite", TextFormatting.AQUA).addTrait(pulverizing);
     public static Material bysmuid = new Material("bysmuid", TextFormatting.AQUA).addTrait(organizing, HandleMaterialStats.TYPE).addTrait(melting, HeadMaterialStats.TYPE);
     public static Material nucleum = new Material("nucleum", TextFormatting.AQUA).addTrait(diffuse).addTrait(bright, HeadMaterialStats.TYPE);
