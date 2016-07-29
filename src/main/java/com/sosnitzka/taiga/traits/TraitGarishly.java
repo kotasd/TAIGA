@@ -65,8 +65,8 @@ public class TraitGarishly extends AbstractTrait {
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
         float r = random.nextFloat();
-        if (r > 0.5f) event.getDrops().clear();
-        else if (r < 0.1 && event.getWorld().getBlockState(event.getPos()).getMaterial() == Material.ROCK) {
+        if (random.nextBoolean()) event.getDrops().clear();
+        else if (r < 0.25 && event.getWorld().getBlockState(event.getPos()).getMaterial() == Material.ROCK) {
             @SuppressWarnings("ConstantConditions") ItemStack stack = new ItemStack(Item.getItemFromBlock(event.getWorld().getBlockState(event.getPos()).getBlock()), random.nextInt(3));
             event.getDrops().add(0, stack);
             ToolHelper.damageTool(tool, random.nextInt(6) + 1, event.getHarvester());

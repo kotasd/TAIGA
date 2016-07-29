@@ -49,7 +49,6 @@ public class TraitFracture extends AbstractTrait {
                     case NORTH:
                         BlockPos next6 = new BlockPos(pos.getX(), pos.getY() - i, pos.getZ() + i);
                         if (tool.canHarvestBlock(world.getBlockState(next6))) world.destroyBlock(next6, true);
-                        break;
                 }
             }
             if (random.nextBoolean()) ToolHelper.damageTool(tool, random.nextInt(5), player);

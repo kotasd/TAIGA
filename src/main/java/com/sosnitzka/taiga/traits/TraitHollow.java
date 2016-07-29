@@ -31,7 +31,7 @@ public class TraitHollow extends AbstractTrait {
         if (random.nextFloat() <= 0.2 || (random.nextFloat() <= 0.2 && isNight(time))) {
             ((EntityLiving) target).setNoAI(true);
             target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-            if (target.getMaxHealth() < 200) {
+            if (target.getMaxHealth() < 250) {
                 target.setHealth(target.getMaxHealth() * (1.8f - random.nextFloat() * 0.4f));
             }
         }

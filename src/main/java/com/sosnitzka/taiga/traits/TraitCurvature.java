@@ -28,10 +28,7 @@ public class TraitCurvature extends AbstractTrait {
 
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        if (player.worldObj.isRemote) {
-            return;
-        }
-        if (random.nextFloat() <= 0.01 && world.provider.getDimension() != -1) {
+        if (!player.worldObj.isRemote && random.nextFloat() <= 0.01 && world.provider.getDimension() != -1) {
             teleport(player, world);
             player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
         }
@@ -60,9 +57,9 @@ public class TraitCurvature extends AbstractTrait {
     }
 
     private void teleport(EntityLivingBase e, World w) {
-        int x = e.getPosition().getX() + random.nextInt(250) - 125;
+        int x = e.getPosition().getX() + random.nextInt(20) - 10;
         int y = e.getPosition().getY();
-        int z = e.getPosition().getZ() + random.nextInt(250) - 125;
+        int z = e.getPosition().getZ() + random.nextInt(20) - 10;
         while (w.getBlockState(new BlockPos(x, y, z)).getBlock() != Blocks.AIR) {
             y++;
         }

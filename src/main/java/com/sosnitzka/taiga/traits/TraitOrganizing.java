@@ -1,29 +1,29 @@
 package com.sosnitzka.taiga.traits;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import net.minecraftforge.event.world.BlockEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class TraitOrganizing extends AbstractTrait {
 
-    private static final float chance = 0.02f;
+    private static final float chance = .9f;
 
     public TraitOrganizing() {
         super("organizing", TextFormatting.GREEN);
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        if (!world.isRemote && (state.getMaterial() == Material.ROCK) && random.nextFloat() < chance) {
-            world.setBlockState(pos, Blocks.LOG.getDefaultState());
-            ToolHelper.healTool(tool, random.nextInt(5), player);
+    public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
+        float r = random.nextFloat();
+        Block b = event.getWorld().getBlockState(event.getPos()).getBlock();
+        if (r <= chance && (b.equals(Blocks.STONE) || b.equals(Blocks.COBBLESTONE))) {
+            event.getWorld().setBlockState(event.getPos(), Blocks.LOG.getDefaultState());
+            ToolHelper.healTool(tool, random.nextInt(5), event.getHarvester());
         }
     }
+
 }

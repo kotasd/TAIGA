@@ -55,6 +55,7 @@ public class TraitNBT extends AbstractTrait {
         if (!w.isRemote && e.getSource().getEntity() != null) {
             if (e.getSource().getEntity() instanceof EntityPlayer) {
                 ItemStack tool = ((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand();
+                if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier))
                 xupdate(tool, e.getSource().getEntity());
             }
         }
@@ -66,6 +67,7 @@ public class TraitNBT extends AbstractTrait {
         Data data = Data.read(tag);
         float boost = data.charges;
         event.setNewSpeed(event.getNewSpeed() + event.getOriginalSpeed() * boost);
+
     }
 
     @SubscribeEvent

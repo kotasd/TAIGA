@@ -27,7 +27,7 @@ public class TraitNatureBound extends AbstractTrait {
     @Override
     public int onToolHeal(ItemStack tool, int amount, int newAmount, EntityLivingBase entity) {
         // 5% less durability repaired!
-        return newAmount - amount * 5 / 100;
+        return newAmount - amount * 10 / 100;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class TraitNatureBound extends AbstractTrait {
         // *20 because 20 ticks in a second
         int chance = 20;
         if (!world.isRemote && entity instanceof EntityLivingBase && random.nextInt(30 * chance) == 0) {
-            ToolHelper.healTool(tool, random.nextInt(9) + 1, (EntityLivingBase) entity);
+            ToolHelper.healTool(tool, random.nextInt(3) + 1, (EntityLivingBase) entity);
         }
 
     }
