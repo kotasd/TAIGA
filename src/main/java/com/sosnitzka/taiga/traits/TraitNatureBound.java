@@ -4,17 +4,14 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+
+import static com.sosnitzka.taiga.Blocks.rottenGround;
 
 
 public class TraitNatureBound extends AbstractTrait {
@@ -34,18 +31,11 @@ public class TraitNatureBound extends AbstractTrait {
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
         // *20 because 20 ticks in a second
         int chance = 20;
-        if (!world.isRemote && entity instanceof EntityLivingBase && random.nextInt(30 * chance) == 0) {
-            ToolHelper.healTool(tool, random.nextInt(3) + 1, (EntityLivingBase) entity);
-        }
-
-    }
-
-    @SubscribeEvent
-    public void onBlockBreak(BlockEvent.BreakEvent e) {
-        Block b = e.getWorld().getBlockState(e.getPos()).getBlock();
-        if (!e.getWorld().isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(e.getPlayer().getHeldItemMainhand()), identifier) && random.nextFloat() <= .07 && (b == Blocks.DIRT || b == Blocks.GRASS || b == Blocks.LOG || b == Blocks.LOG2 || b == Blocks.STONE)) {
-            e.setCanceled(true);
-            e.getPlayer().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+        Block b = world.getBlockState(entity.getPosition().down()).getBlock();
+        if (!world.isRemote && entity instanceof EntityLivingBase && random.nextInt(20 * chance) == 0) {
+            if (b.equals(Blocks.GRASS) || b.equals(Blocks.LOG) || b.equals(Blocks.LOG2) || b.equals(rottenGround) || b.equals(Blocks.LEAVES) || b.equals(Blocks.LEAVES2)) {
+                ToolHelper.healTool(tool, random.nextInt(3) + 1, (EntityLivingBase) entity);
+            } else ToolHelper.damageTool(tool, 1, (EntityLivingBase) entity);
         }
     }
 }

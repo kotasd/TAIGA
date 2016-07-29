@@ -5,14 +5,13 @@ import net.minecraftforge.common.MinecraftForge;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 
-public class TraitUncertain extends AbstractTrait {
+public class TraitTemplate extends AbstractTrait {
 
 
-    public TraitUncertain() {
-        super(TraitUncertain.class.getName().toLowerCase().substring(4), TextFormatting.RED);
+    public TraitTemplate() {
+        super(TraitTemplate.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);
         MinecraftForge.EVENT_BUS.register(this);
     }
-
 
 
 }

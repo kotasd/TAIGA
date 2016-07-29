@@ -26,6 +26,8 @@ public class TraitCurvature extends AbstractTrait {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    public static int distance = 10;
+
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
         if (!player.worldObj.isRemote && random.nextFloat() <= 0.01 && world.provider.getDimension() != -1) {
@@ -50,16 +52,16 @@ public class TraitCurvature extends AbstractTrait {
         if (!w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
             if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
-                ItemStack i = new ItemStack(Items.ENDER_PEARL, random.nextInt(3));
+                ItemStack i = new ItemStack(Items.ENDER_PEARL, random.nextInt(2));
                 event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
             }
         }
     }
 
     private void teleport(EntityLivingBase e, World w) {
-        int x = e.getPosition().getX() + random.nextInt(20) - 10;
+        int x = e.getPosition().getX() + random.nextInt(distance * 2) - distance;
         int y = e.getPosition().getY();
-        int z = e.getPosition().getZ() + random.nextInt(20) - 10;
+        int z = e.getPosition().getZ() + random.nextInt(distance * 2) - distance;
         while (w.getBlockState(new BlockPos(x, y, z)).getBlock() != Blocks.AIR) {
             y++;
         }

@@ -1,33 +1,33 @@
 package com.sosnitzka.taiga.traits;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 
 public class TraitMelting extends AbstractTrait {
 
     public TraitMelting() {
         super("melting", TextFormatting.YELLOW);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+
+    @SubscribeEvent
+    public void blockbreak(BlockEvent.BreakEvent e) {
         float r = random.nextFloat();
-        Block b = state.getBlock();
-        System.out.println("Float " + r);
-        System.out.println("Block " + b);
-        System.out.println("Block 2 " + Blocks.STONE);
-        if (!world.isRemote && r <= 0.901 && (b == Blocks.STONE || b == Blocks.COBBLESTONE || b == Blocks.NETHERRACK)) {
-            System.out.println("Sollte es eigentlich tun!??!?! ");
-            world.setBlockState(pos.down(), Blocks.MAGMA.getDefaultState());
-            world.setBlockState(pos.up(), Blocks.GLASS.getDefaultState());
+        Block b = e.getWorld().getBlockState(e.getPos()).getBlock();
+        if (TinkerUtil.hasTrait(TagUtil.getTagSafe(e.getPlayer().getHeldItemMainhand()), identifier)) {
+            if (!e.getWorld().isRemote && r <= 0.025 && (b == Blocks.STONE || b == Blocks.COBBLESTONE || b == Blocks.NETHERRACK || b == Blocks.OBSIDIAN)) {
+                e.setCanceled(true);
+                e.getWorld().setBlockState(e.getPos(), Blocks.LAVA.getDefaultState());
+            }
         }
     }
 }

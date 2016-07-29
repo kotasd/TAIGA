@@ -28,6 +28,7 @@ public class Utils {
 
     /**
      * Registers the fluid and its bucket item
+     *
      * @param fluid the fluid
      */
     public static void registerFluid(Fluid fluid) {
@@ -82,4 +83,9 @@ public class Utils {
     public static boolean isNight(int time) {
         return time > 12500;
     }
+
+    public static double round2(double d) {
+        return (Math.round(d * 100.0) / 100.0);
+    }
+
 }

@@ -37,7 +37,7 @@ public class TraitRandomize extends AbstractTrait {
 
     @Override
     public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical) {
-        if (random.nextFloat() <= .15 && target instanceof EntityLiving) {
+        if (random.nextFloat() <= .1f && target instanceof EntityLiving) {
             World w = player.getEntityWorld();
             Entity e = new EntityCow(w);
             target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
@@ -114,7 +114,7 @@ public class TraitRandomize extends AbstractTrait {
                 e.setPosition(target.getPosition().getX(), target.getPosition().getY() + 0.1f, target.getPosition().getZ());
                 e.setCustomNameTag("Missingno");
                 if (e instanceof EntityLiving)
-                    ((EntityLiving) e).setHealth(((EntityLiving) e).getHealth() * (random.nextInt(5) + 1));
+                    ((EntityLiving) e).setHealth(((EntityLiving) e).getHealth() * (random.nextInt(3) + 1));
                 w.spawnEntityInWorld(e);
                 target.setDead();
             }
@@ -125,9 +125,9 @@ public class TraitRandomize extends AbstractTrait {
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
         float r = random.nextFloat();
-        if (r > 0.95f) event.getDrops().clear();
+        if (r >= 0.85f) event.getDrops().clear();
         if (event.getDrops() != null) {
-            if (r < 0.4f && (event.getDrops().get(0).getItem() == Item.getItemFromBlock(Blocks.IRON_ORE) || event.getDrops().get(0).getItem() == Item.getItemFromBlock(Blocks.GOLD_ORE))) {
+            if (r <= 0.02f) {
                 ItemStack change = new ItemStack(Item.getItemFromBlock(Blocks.IRON_ORE));
                 int i = random.nextInt(12);
                 switch (i) {
