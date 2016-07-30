@@ -5,7 +5,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,14 +26,12 @@ public class TraitSoulbound extends AbstractTrait {
 
     @SubscribeEvent
     public void onEntityKill(LivingDeathEvent e) {
-        if (e.getSource().getEntity() instanceof EntityPlayer && e.getEntity() instanceof EntityCreature) {
-            EntityPlayer p = (EntityPlayer) e.getSource().getEntity();
+        if (e.getSource().getEntity() instanceof EntityPlayer && !e.getSource().getEntity().worldObj.isRemote && e.getEntity() instanceof EntityCreature) {
             if (TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand()), identifier)) {
                 ItemStack tool = ((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand();
                 String name = e.getEntity().getName();
-                NBTTagList tagList = TagUtil.getModifiersTagList(tool);
-                int index = TinkerUtil.getIndexInCompoundList(tagList, identifier);
-                NBTTagCompound tag = tagList.getCompoundTagAt(index);
+
+                NBTTagCompound tag = TagUtil.getExtraTag(tool);
                 Data data = Data.read(tag);
                 if (data.killed) {
                     return;
@@ -42,8 +39,8 @@ public class TraitSoulbound extends AbstractTrait {
                 data.mobname = name;
                 data.killed = true;
                 data.write(tag);
-                tagList.set(index, tag);
-                TagUtil.setModifiersTagList(tool, tagList);
+                assert tool != null;
+                TagUtil.setExtraTag(tool, tag);
             }
         }
     }
@@ -52,32 +49,28 @@ public class TraitSoulbound extends AbstractTrait {
     public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
         World w = player.getEntityWorld();
         if (!w.isRemote) {
-            NBTTagCompound tag = TinkerUtil.getModifierTag(tool, identifier);
+            NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
             if (!data.killed) {
                 return damage;
             }
             if (!data.mobname.equals(target.getName())) {
-                return damage / (random.nextInt(11) + 10);
+                return damage / (random.nextInt(5) + 5);
             }
-            float x = (1 + random.nextFloat() * 4);
+            float x = (1 + random.nextFloat() * 9);
             return damage * x;
         }
-        System.out.println("Standard " + damage);
         return damage;
     }
-
 
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent e) {
         ItemStack tool = e.getItemStack();
-        if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
+        if (e.getEntityPlayer().getEntityWorld().isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
             String name;
-            NBTTagList tagList = TagUtil.getModifiersTagList(tool);
-            int index = TinkerUtil.getIndexInCompoundList(tagList, identifier);
-            NBTTagCompound tag = tagList.getCompoundTagAt(index);
+            NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
-            if (data.killed == false) name = "-";
+            if (!data.killed) name = "---";
             else name = data.mobname;
             e.getToolTip().add(TextFormatting.DARK_PURPLE + "Bound to: " + TextFormatting.LIGHT_PURPLE + name);
         }
@@ -85,17 +78,14 @@ public class TraitSoulbound extends AbstractTrait {
 
 
     public static class Data {
-
         String mobname;
         Boolean killed;
-
         public static Data read(NBTTagCompound tag) {
             Data data = new Data();
             data.mobname = tag.getString("mobname");
             data.killed = tag.getBoolean("killed");
             return data;
         }
-
         public void write(NBTTagCompound tag) {
             tag.setString("mobname", mobname);
             tag.setBoolean("killed", killed);
