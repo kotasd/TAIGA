@@ -2,7 +2,6 @@ package com.sosnitzka.taiga.traits;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -17,8 +16,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-
-import java.lang.reflect.Constructor;
 
 
 public class TraitCatcher extends AbstractTrait {
@@ -36,23 +33,16 @@ public class TraitCatcher extends AbstractTrait {
         if (!w.isRemote && random.nextInt((int) target.getMaxHealth()) <= chance && target instanceof EntityCreature) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
-            try {
-                Class<?> c = Class.forName(target.getName());
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+            if (data.mobClass.isEmpty()) {
+                data.mobClass = target.getClass().getName();
+                System.out.println(data.mobClass);
+                data.write(tag);
+                TagUtil.setEnchantEffect(tool, true);
+                TagUtil.setExtraTag(tool, tag);
+                player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+                target.setDropItemsWhenDead(false);
+                target.setDead();
             }
-            Constructor<?> constructor = c.getConstructor()[0]
-            String name = target.getClass().toString();
-            System.out.println(name);
-            if (data.isMob) {
-                return;
-            }
-            data.write(tag);
-            TagUtil.setEnchantEffect(tool, true);
-            TagUtil.setExtraTag(tool, tag);
-            player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-            target.setDropItemsWhenDead(false);
-            target.setDead();
         }
     }
 
@@ -64,17 +54,23 @@ public class TraitCatcher extends AbstractTrait {
         if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
-            if (data.isMob) {
-                data.isMob = false;
-                Entity ent
-                System.out.println("");
-                assert ent != null;
-                ent.setPosition(pos.getX(), pos.getY(), pos.getZ());
-                w.spawnEntityInWorld(ent);
-                event.getEntityPlayer().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-                data.write(tag);
-                TagUtil.setExtraTag(tool, tag);
-                TagUtil.setEnchantEffect(tool, false);
+            if (!data.mobClass.isEmpty()) {
+                Entity ent = null;
+                try {
+                    ent = (Entity) Class.forName(data.mobClass).getConstructor(World.class).newInstance(w);
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                }
+
+                if (ent != null) {
+                    ent.setPosition(pos.getX(), pos.getY(), pos.getZ()); // TODO: set to player view target
+                    w.spawnEntityInWorld(ent);
+                    event.getEntityPlayer().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+                    data.mobClass = "";
+                    data.write(tag);
+                    TagUtil.setExtraTag(tool, tag);
+                    TagUtil.setEnchantEffect(tool, false);
+                }
             }
         }
     }
@@ -84,29 +80,24 @@ public class TraitCatcher extends AbstractTrait {
     public void onItemTooltip(ItemTooltipEvent e) {
         ItemStack tool = e.getItemStack();
         if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
-            String name;
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
-            if (!data.isMob) name = "";
-            else name = data.mob;
-            e.getToolTip().add(TextFormatting.DARK_PURPLE + "Captured: " + TextFormatting.LIGHT_PURPLE + name);
+
+            e.getToolTip().add(TextFormatting.DARK_PURPLE + "Captured: " + TextFormatting.LIGHT_PURPLE + data.mobClass);
         }
     }
 
     public static class Data {
-        String mob;
-        Boolean isMob;
+        String mobClass;
 
         public static Data read(NBTTagCompound tag) {
             Data data = new Data();
-            data.mob = tag.getString("mob");
-            data.isMob = tag.getBoolean("isMob");
+            data.mobClass = tag.getString("mobClass");
             return data;
         }
 
         public void write(NBTTagCompound tag) {
-            tag.setString("mob", mob);
-            tag.setBoolean("isMob", isMob);
+            tag.setString("mobClass", mobClass);
         }
     }
 }
