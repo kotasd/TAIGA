@@ -66,7 +66,7 @@ public class TraitSoulbound extends AbstractTrait {
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent e) {
         ItemStack tool = e.getItemStack();
-        if (e.getEntityPlayer().getEntityWorld().isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
+        if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
             String name;
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);

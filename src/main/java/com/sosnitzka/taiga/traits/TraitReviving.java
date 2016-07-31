@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -37,6 +38,7 @@ public class TraitReviving extends AbstractTrait {
                     assert ent != null;
                     ent.setPosition(pos.getX(), pos.getY(), pos.getZ());
                     w.spawnEntityInWorld(ent);
+                    e.getSource().getEntity().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
                 }
             }
         }

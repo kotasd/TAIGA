@@ -4,7 +4,6 @@ import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -34,17 +33,6 @@ public class TraitTantrum extends AbstractTrait {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @SubscribeEvent
-    public void onItemTooltip(ItemTooltipEvent e) {
-        ItemStack tool = e.getItemStack();
-        if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
-            NBTTagList tagList = TagUtil.getModifiersTagList(tool);
-            int index = TinkerUtil.getIndexInCompoundList(tagList, identifier);
-            NBTTagCompound tag = tagList.getCompoundTagAt(index);
-            Data data = Data.read(tag);
-            e.getToolTip().add(TextFormatting.RED + "Charge: " + data.amount);
-        }
-    }
 
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
@@ -52,23 +40,20 @@ public class TraitTantrum extends AbstractTrait {
         if (!w.isRemote) {
             if (event.getState().getBlock().equals(tiberiumOre)) {
                 event.getDrops().clear();
-                NBTTagList tagList = TagUtil.getModifiersTagList(tool);
-                int index = TinkerUtil.getIndexInCompoundList(tagList, identifier);
-                NBTTagCompound tag = tagList.getCompoundTagAt(index);
+                NBTTagCompound tag = TagUtil.getExtraTag(tool);
                 Data data = Data.read(tag);
                 if (data.amount >= max_charges) {
                     return;
                 }
                 data.amount += (0.25f + Utils.round2(random.nextDouble() / 4));
-                if (data.amount >= 12f) {
+                if (data.amount >= max_charges) {
                     TagUtil.setEnchantEffect(tool, true);
                     if (event.getHarvester() instanceof EntityPlayerMP) {
                         Sounds.PlaySoundForPlayer(event.getHarvester(), Sounds.shocking_discharge, 1f, 0.8f + .2f * random.nextFloat());
                     }
                 }
                 data.write(tag);
-                tagList.set(index, tag);
-                TagUtil.setModifiersTagList(tool, tagList);
+                TagUtil.setExtraTag(tool, tag);
             }
         }
     }
@@ -79,22 +64,28 @@ public class TraitTantrum extends AbstractTrait {
         BlockPos pos = event.getPos();
         ItemStack tool = event.getEntityPlayer().getHeldItemMainhand();
         if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
-            NBTTagCompound tag = TinkerUtil.getModifierTag(tool, identifier);
+            NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
             if (data.amount > 1f) {
                 double d = Math.min(Utils.round2(random.nextDouble() * data.amount), max_power);
-                w.newExplosion(event.getEntityPlayer(), pos.getX(), pos.getY(), pos.getZ(), (float) Math.pow((double) 1.2f, d), random.nextBoolean(), true);
+                w.newExplosion(event.getEntityPlayer(), pos.getX(), pos.getY(), pos.getZ(), (float) Math.pow((double) 1.2f, d), false, true);
                 data.amount -= d;
-                NBTTagList tagList = TagUtil.getModifiersTagList(tool);
-                int index = TinkerUtil.getIndexInCompoundList(tagList, identifier);
                 data.write(tag);
-                tagList.set(index, tag);
-                TagUtil.setModifiersTagList(tool, tagList);
+                TagUtil.setExtraTag(tool, tag);
                 TagUtil.setEnchantEffect(tool, false);
             }
         }
     }
 
+    @SubscribeEvent
+    public void onItemTooltip(ItemTooltipEvent e) {
+        ItemStack tool = e.getItemStack();
+        if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
+            NBTTagCompound tag = TagUtil.getExtraTag(tool);
+            Data data = Data.read(tag);
+            e.getToolTip().add(TextFormatting.RED + "Charge: " + data.amount);
+        }
+    }
 
     public static class Data {
 
