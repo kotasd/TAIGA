@@ -3,12 +3,8 @@ package com.sosnitzka.taiga;
 
 import com.sosnitzka.taiga.traits.*;
 import net.minecraft.util.text.TextFormatting;
-import slimeknights.tconstruct.library.materials.HandleMaterialStats;
-import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-
-import static slimeknights.tconstruct.tools.TinkerMaterials.*;
 
 public class MaterialTraits {
 
@@ -50,37 +46,46 @@ public class MaterialTraits {
     public static final AbstractTrait tantrum = new TraitTantrum();
     public static final AbstractTrait catcher = new TraitCatcher();
     public static final AbstractTrait soulbound = new TraitSoulbound();
+    public static final AbstractTrait souleater = new TraitSoulEater();
 
-    public static Material arcanite = new Material("arcanite", TextFormatting.LIGHT_PURPLE).addTrait(arcane, HeadMaterialStats.TYPE).addTrait(blind, HandleMaterialStats.TYPE);
-    public static Material tiberium = new Material("tiberium", TextFormatting.GREEN).addTrait(instable);
-    public static Material prometheum = new Material("prometheum", TextFormatting.DARK_PURPLE).addTrait(haunted, HeadMaterialStats.TYPE).addTrait(blind);
-    public static Material rubium = new Material("rubium", TextFormatting.RED).addTrait(enderference, HeadMaterialStats.TYPE).addTrait(blind);
-    public static Material violium = new Material("violium", TextFormatting.DARK_GREEN).addTrait(stonebound, HandleMaterialStats.TYPE).addTrait(poisonous, HeadMaterialStats.TYPE);
-    public static Material bismuth = new Material("bismuth", TextFormatting.GREEN).addTrait(splintering, HeadMaterialStats.TYPE).addTrait(splinters, HandleMaterialStats.TYPE);
-    public static Material karmesine = new Material("karmesine", TextFormatting.DARK_RED).addTrait(aridiculous, HandleMaterialStats.TYPE).addTrait(superheat, HeadMaterialStats.TYPE);
-    public static Material mindorite = new Material("mindorite", TextFormatting.AQUA).addTrait(cheap);
-    public static Material titanite = new Material("titanite", TextFormatting.GRAY).addTrait(shocking, HandleMaterialStats.TYPE).addTrait(sharp, HeadMaterialStats.TYPE);
-    public static Material meteorite = new Material("meteorite", TextFormatting.GRAY).addTrait(established, HandleMaterialStats.TYPE).addTrait(momentum, HeadMaterialStats.TYPE);
-    public static Material adamantite = new Material("adamantite", TextFormatting.GRAY).addTrait(coldblooded, HeadMaterialStats.TYPE).addTrait(magnetic, HandleMaterialStats.TYPE);
-    public static Material vibranium = new Material("vibranium", TextFormatting.GRAY).addTrait(resonance);
-    public static Material ignitite = new Material("ignitite", TextFormatting.RED).addTrait(melting, HandleMaterialStats.TYPE).addTrait(flammable, HeadMaterialStats.TYPE);
-    public static Material palladium = new Material("palladium", TextFormatting.DARK_GRAY).addTrait(dark);
-    public static Material eternite = new Material("eternite", TextFormatting.AQUA).addTrait(writable2); //.addTrait(traditional)
-    public static Material mythril = new Material("mythril", TextFormatting.GRAY).addTrait(holy, HeadMaterialStats.TYPE).addTrait(hellish, HandleMaterialStats.TYPE);
-    public static Material imperomite = new Material("imperomite", TextFormatting.DARK_RED).addTrait(cascade);
-    public static Material fractoryte = new Material("fractoryte", TextFormatting.DARK_RED).addTrait(fracture);
-    public static Material noctunyx = new Material("noctunyx", TextFormatting.LIGHT_PURPLE).addTrait(hollow, HeadMaterialStats.TYPE).addTrait(reviving, HandleMaterialStats.TYPE);
-    public static Material nitronite = new Material("nitronite", TextFormatting.YELLOW).addTrait(uncertain);
-    public static Material cryptogen = new Material("cryptogen", TextFormatting.DARK_GREEN).addTrait(randomize);
-    public static Material seismodium = new Material("seismodium", TextFormatting.WHITE).addTrait(heroic).addTrait(fragile);
-    public static Material aegisalt = new Material("aegisalt", TextFormatting.AQUA).addTrait(catcher); //.addTrait(analysing)
-    public static Material ultranite = new Material("ultranite", TextFormatting.AQUA).addTrait(pulverizing);
-    public static Material bysmuid = new Material("bysmuid", TextFormatting.AQUA).addTrait(organizing, HandleMaterialStats.TYPE).addTrait(melting, HeadMaterialStats.TYPE);
-    public static Material nucleum = new Material("nucleum", TextFormatting.AQUA).addTrait(diffuse).addTrait(bright, HeadMaterialStats.TYPE);
-    public static Material lumixyl = new Material("lumixyl", TextFormatting.YELLOW).addTrait(glimmer);
-    public static Material dyonite = new Material("dyonite", TextFormatting.GRAY).addTrait(slaughtering, HeadMaterialStats.TYPE).addTrait(dissolving, HandleMaterialStats.TYPE);
-    public static Material terramite = new Material("terramite", TextFormatting.GRAY).addTrait(naturebound).addTrait(fragile);
-    public static Material solarium = new Material("solarium", TextFormatting.RED).addTrait(garishly);
-    public static Material astrium = new Material("astrium", TextFormatting.DARK_PURPLE).addTrait(curvature);
-    public static Material proxideum = new Material("proxideum", TextFormatting.LIGHT_PURPLE).addTrait(softy, HandleMaterialStats.TYPE).addTrait(lightweight);
+    /**
+     * Assign traits to related materials. <br>
+     * <p>
+     * <p> Example:
+     * .addTrait(x, HandleMaterialStats.TYPE).addTrait(y, HeadMaterialStats.TYPE)
+     * .addTrait(z)
+     */
+
+    public static Material arcanite = new Material("arcanite", TextFormatting.LIGHT_PURPLE).addTrait(souleater);
+    public static Material tiberium = new Material("tiberium", TextFormatting.GREEN);
+    public static Material prometheum = new Material("prometheum", TextFormatting.DARK_PURPLE);
+    public static Material rubium = new Material("rubium", TextFormatting.RED);
+    public static Material violium = new Material("violium", TextFormatting.DARK_GREEN);
+    public static Material bismuth = new Material("bismuth", TextFormatting.GREEN);
+    public static Material karmesine = new Material("karmesine", TextFormatting.DARK_RED);
+    public static Material mindorite = new Material("mindorite", TextFormatting.AQUA);
+    public static Material titanite = new Material("titanite", TextFormatting.GRAY);
+    public static Material meteorite = new Material("meteorite", TextFormatting.GRAY);
+    public static Material adamantite = new Material("adamantite", TextFormatting.GRAY);
+    public static Material vibranium = new Material("vibranium", TextFormatting.GRAY);
+    public static Material ignitite = new Material("ignitite", TextFormatting.RED);
+    public static Material palladium = new Material("palladium", TextFormatting.DARK_GRAY);
+    public static Material eternite = new Material("eternite", TextFormatting.AQUA);
+    public static Material mythril = new Material("mythril", TextFormatting.GRAY);
+    public static Material imperomite = new Material("imperomite", TextFormatting.DARK_RED);
+    public static Material fractoryte = new Material("fractoryte", TextFormatting.DARK_RED);
+    public static Material noctunyx = new Material("noctunyx", TextFormatting.LIGHT_PURPLE);
+    public static Material nitronite = new Material("nitronite", TextFormatting.YELLOW);
+    public static Material cryptogen = new Material("cryptogen", TextFormatting.DARK_GREEN);
+    public static Material seismodium = new Material("seismodium", TextFormatting.WHITE);
+    public static Material aegisalt = new Material("aegisalt", TextFormatting.AQUA);
+    public static Material ultranite = new Material("ultranite", TextFormatting.AQUA);
+    public static Material bysmuid = new Material("bysmuid", TextFormatting.AQUA);
+    public static Material nucleum = new Material("nucleum", TextFormatting.AQUA);
+    public static Material lumixyl = new Material("lumixyl", TextFormatting.YELLOW);
+    public static Material dyonite = new Material("dyonite", TextFormatting.GRAY);
+    public static Material terramite = new Material("terramite", TextFormatting.GRAY);
+    public static Material solarium = new Material("solarium", TextFormatting.RED);
+    public static Material astrium = new Material("astrium", TextFormatting.DARK_PURPLE);
+    public static Material proxideum = new Material("proxideum", TextFormatting.LIGHT_PURPLE);
 }

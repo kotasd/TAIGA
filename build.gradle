@@ -61,7 +61,7 @@ task buildInfo {
 version = project.buildInfo.revision
 
 minecraft {
-    version = "1.10.2-12.18.1.2011"
+    version = "1.10.2-12.18.1.2044"
     runDir = "run"
 
     // the mappings can be changed at any time, and must be in the following format.
@@ -83,10 +83,12 @@ dependencies {
     //deobfCompile "codechicken:CodeChickenLib:1.9.4-2.0.2.39:deobf"
     //deobfCompile "codechicken:CodeChickenCore:1.9.4-2.0.3.65:deobf"
     //deobfCompile "codechicken:NotEnoughItems:1.9-${nei_version}:dev"
-    deobfCompile "slimeknights.mantle:Mantle:1.10.2-0.10.3.jenkins161:deobf"
-    //Old: deobfCompile "slimeknights.mantle:Mantle:1.9-0.10.0.jenkins132:deobf"
+    // Old: deobfCompile "slimeknights.mantle:Mantle:1.9-0.10.0.jenkins132:deobf"
+    // Old: deobfCompile "slimeknights.mantle:Mantle:1.10.2-0.10.3.jenkins161:deobf"
+    deobfCompile "slimeknights.mantle:Mantle:1.10.2-0.10.4.jenkins163:deobf"
     deobfCompile "mezz.jei:jei_1.10.2:3.7.6.231"
-    deobfCompile "slimeknights:TConstruct:1.10-2.3.3a.jenkins271:deobf"
+    // Old: deobfCompile "slimeknights:TConstruct:1.10-2.3.3a.jenkins271:deobf"
+    deobfCompile "slimeknights:TConstruct:1.10.2-2.4.0.jenkins314:deobf"
     //compile files('libs/TConstruct-1.9-2.3.1.DEV.1d4c1de-deobf.jar')
 }
 
