@@ -88,4 +88,32 @@ public class Utils {
         return (Math.round(d * 100.0) / 100.0);
     }
 
+    public static class GeneralNBTData {
+
+        public int killcount;
+        public float health;
+        public int brokenblocks;
+        public float bonus;
+        public int curse;
+
+        public static GeneralNBTData read(NBTTagCompound tag) {
+            GeneralNBTData data = new GeneralNBTData();
+            data.killcount = tag.getInteger("killcount");
+            data.brokenblocks = tag.getInteger("brokenblocks");
+            data.health = tag.getFloat("health");
+            data.bonus = tag.getFloat("bonus");
+            data.curse = tag.getInteger("curse");
+            return data;
+        }
+
+        public void write(NBTTagCompound tag) {
+            tag.setInteger("killcount", killcount);
+            tag.setInteger("brokenblocks", brokenblocks);
+            tag.setFloat("health", health);
+            tag.setFloat("bonus", bonus);
+            tag.setInteger("curse", curse);
+        }
+    }
+
+
 }

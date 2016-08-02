@@ -1,11 +1,11 @@
 package com.sosnitzka.taiga.traits;
 
-import net.minecraft.entity.Entity;
+import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -19,7 +19,7 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 public class TraitSoulEater extends AbstractTrait {
 
-    private static int chance = 60 * 600;
+    private static float divisor = 20000f;
 
     public TraitSoulEater() {
         super(TraitSoulEater.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);
@@ -33,11 +33,15 @@ public class TraitSoulEater extends AbstractTrait {
             ItemStack tool = ((EntityPlayer) event.getSource().getEntity()).getHeldItemMainhand();
             if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
                 NBTTagCompound tag = TagUtil.getExtraTag(tool);
-                Data data = Data.read(tag);
+                Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
                 float health = ((EntityLiving) event.getEntity()).getMaxHealth();
-                data.killCount += 111;
-                System.out.println(data.killCount);
-                data.bonus += random.nextFloat() * health;
+                data.killcount += 1;
+                data.curse += Math.min((int) health / 4, 4);
+                data.health = health;
+                float bonus = Math.round(random.nextFloat() * health * 100) / divisor;
+                System.out.println(bonus);
+                data.bonus += bonus;
+                data.bonus = (float) Math.round(data.bonus * 100f) / 100f;
                 data.write(tag);
                 TagUtil.setExtraTag(tool, tag);
             }
@@ -45,17 +49,11 @@ public class TraitSoulEater extends AbstractTrait {
     }
 
     @Override
-    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
-
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
         NBTTagCompound tag = TagUtil.getExtraTag(tool);
-        Data data = Data.read(tag);
-        EntityPlayer player = (EntityPlayer) entity;
-        if (random.nextInt((int) ((chance + data.killCount) / (data.killCount + 1))) == 1) {
-            entity.attackEntityFrom(new DamageSource("Soul Eater"), random.nextFloat() * ((EntityPlayer) entity).getHealth() / 2);
-        }
-        if (isSelected) {
-            //((EntityPlayer) entity).getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5d);
-        }
+        Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
+        float bonus = data.bonus;
+        return newDamage + bonus;
     }
 
     @SubscribeEvent
@@ -63,30 +61,13 @@ public class TraitSoulEater extends AbstractTrait {
         ItemStack tool = e.getItemStack();
         if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
-            Data data = Data.read(tag);
-            if (data.killCount != 0) {
-                e.getToolTip().add(TextFormatting.WHITE + "Killed: " + TextFormatting.WHITE + data.killCount);
+            Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
+            if (data.killcount != 0) {
+                e.getToolTip().add(TextFormatting.WHITE + "Killed: " + TextFormatting.WHITE + data.killcount);
+                e.getToolTip().add(TextFormatting.WHITE + "Bonus: " + TextFormatting.WHITE + data.bonus);
+                e.getToolTip().add(TextFormatting.WHITE + "Last Health: " + TextFormatting.WHITE + data.health);
             }
         }
     }
-
-
-    public static class Data {
-        float bonus;
-        int killCount;
-
-        public static Data read(NBTTagCompound tag) {
-            Data data = new Data();
-            data.bonus = tag.getFloat("bonus");
-            data.killCount = tag.getInteger("killCount");
-            return data;
-        }
-
-        public void write(NBTTagCompound tag) {
-            tag.setFloat("bonus", bonus);
-            tag.setInteger("killCount", killCount);
-        }
-    }
-
 
 }

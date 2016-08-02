@@ -12,24 +12,24 @@ public class Alloys {
      * Registers alloying in the smeltery
      */
     static void register() {
-        registerTinkerAlloys(nitroniteFluid, 2, tiberiumFluid, 4, vibraniumFluid, 3, nitroFluid, 3);
-        registerTinkerAlloys(bysmuidFluid, 1, rubiumFluid, 3, bismuthFluid, 2, anthraciteFluid, 3);
-        registerTinkerAlloys(ultraniteFluid, 1, prometheumFluid, 3, adamantiteFluid, 2, radiant_enderium, 3);
-        registerTinkerAlloys(astriumFluid, 1, arcaniteFluid, 3, karmesineFluid, 2, energy_enderium, 3);
+        registerTinkerAlloys(molten_nitronite, 2, molten_tiberium, 4, molten_vibranium, 3, molten_nitro, 3);
+        registerTinkerAlloys(molten_bysmuid, 1, molten_rubium, 3, molten_bismuth, 2, molten_anthracite, 3);
+        registerTinkerAlloys(molten_ultranite, 1, molten_prometheum, 3, molten_adamantite, 2, radiant_enderium, 3);
+        registerTinkerAlloys(molten_astrium, 1, molten_arcanite, 3, molten_karmesine, 2, energy_enderium, 3);
 
-        registerTinkerAlloys(imperomiteFluid, 2, titaniteFluid, 3, palladiumFluid, 3, FluidRegistry.LAVA, 3);
-        registerTinkerAlloys(dyoniteFluid, 1, meteoriteFluid, 3, tiberiumFluid, 2, spectrumFluid, 3);
-        registerTinkerAlloys(solariumFluid, 2, vibraniumFluid, 4, ignititeFluid, 4, nitroFluid, 3);
-        registerTinkerAlloys(fractoryteFluid, 2, adamantiteFluid, 4, rubiumFluid, 2, FluidRegistry.LAVA, 3);
+        registerTinkerAlloys(molten_imperomite, 2, molten_titanite, 3, molten_palladium, 3, FluidRegistry.LAVA, 3);
+        registerTinkerAlloys(molten_dyonite, 1, molten_meteorite, 3, molten_tiberium, 2, molten_spectrum, 3);
+        registerTinkerAlloys(molten_solarium, 2, molten_vibranium, 4, molten_ignitite, 4, molten_nitro, 3);
+        registerTinkerAlloys(molten_fractoryte, 2, molten_adamantite, 4, molten_rubium, 2, FluidRegistry.LAVA, 3);
 
-        registerTinkerAlloys(aegisaltFluid, 1, eterniteFluid, 3, mindoriteFluid, 3, glimmercoalFluid, 3);
-        registerTinkerAlloys(noctunyxFluid, 1, mythrilFluid, 4, titaniteFluid, 2, spectrumFluid, 3);
-        registerTinkerAlloys(nucleumFluid, 1, palladiumFluid, 3, violiumFluid, 3, radiant_enderium, 3);
-        registerTinkerAlloys(seismodiumFluid, 2, ignititeFluid, 5, meteoriteFluid, 3, glimming_enderium, 3);
+        registerTinkerAlloys(molten_aegisalt, 1, molten_eternite, 3, molten_mindorite, 3, molten_glimmercoal, 3);
+        registerTinkerAlloys(molten_noctunyx, 1, molten_mythril, 4, molten_titanite, 2, molten_spectrum, 3);
+        registerTinkerAlloys(molten_nucleum, 1, molten_palladium, 3, molten_violum, 3, radiant_enderium, 3);
+        registerTinkerAlloys(molten_seismodium, 2, molten_ignitite, 5, molten_meteorite, 3, glimming_enderium, 3);
 
-        registerTinkerAlloys(lumixylFluid, 1, bismuthFluid, 3, prometheumFluid, 2, glimming_enderium, 6);
-        registerTinkerAlloys(terramiteFluid, 2, violiumFluid, 4, eterniteFluid, 2, energy_enderium, 3);
-        registerTinkerAlloys(cryptogenFluid, 1, mindoriteFluid, 4, arcaniteFluid, 2, anthraciteFluid, 3);
-        registerTinkerAlloys(proxideumFluid, 1, karmesineFluid, 3, mythrilFluid, 2, glimmercoalFluid, 3);
+        registerTinkerAlloys(molten_lumixyl, 1, molten_bismuth, 3, molten_prometheum, 2, glimming_enderium, 6);
+        registerTinkerAlloys(molten_terramite, 2, molten_violum, 4, molten_eternite, 2, energy_enderium, 3);
+        registerTinkerAlloys(molten_cryptogen, 1, molten_mindorite, 4, molten_arcanite, 2, molten_anthracite, 3);
+        registerTinkerAlloys(molten_proxideum, 1, molten_karmesine, 3, molten_mythril, 2, molten_glimmercoal, 3);
     }
 }

@@ -45,7 +45,7 @@ public class MaterialTraits {
     public static final AbstractTrait traditional = new TraitTraditional();
     public static final AbstractTrait tantrum = new TraitTantrum();
     public static final AbstractTrait catcher = new TraitCatcher();
-    public static final AbstractTrait soulbound = new TraitSoulbound();
+    public static final AbstractTrait congenial = new TraitCongenial();
     public static final AbstractTrait souleater = new TraitSoulEater();
 
     /**
