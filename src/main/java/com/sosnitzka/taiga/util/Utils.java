@@ -95,6 +95,7 @@ public class Utils {
         public int brokenblocks;
         public float bonus;
         public int curse;
+        public String name;
 
         public static GeneralNBTData read(NBTTagCompound tag) {
             GeneralNBTData data = new GeneralNBTData();
@@ -103,6 +104,7 @@ public class Utils {
             data.health = tag.getFloat("health");
             data.bonus = tag.getFloat("bonus");
             data.curse = tag.getInteger("curse");
+            data.name = tag.getString("name");
             return data;
         }
 
@@ -112,6 +114,7 @@ public class Utils {
             tag.setFloat("health", health);
             tag.setFloat("bonus", bonus);
             tag.setInteger("curse", curse);
+            tag.setString("name", name);
         }
     }
 

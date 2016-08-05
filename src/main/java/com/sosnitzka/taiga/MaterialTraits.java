@@ -56,7 +56,7 @@ public class MaterialTraits {
      * .addTrait(z)
      */
 
-    public static Material arcanite = new Material("arcanite", TextFormatting.LIGHT_PURPLE).addTrait(souleater);
+    public static Material arcanite = new Material("arcanite", TextFormatting.LIGHT_PURPLE).addTrait(congenial).addTrait(souleater);
     public static Material tiberium = new Material("tiberium", TextFormatting.GREEN);
     public static Material prometheum = new Material("prometheum", TextFormatting.DARK_PURPLE);
     public static Material rubium = new Material("rubium", TextFormatting.RED);

@@ -1,5 +1,6 @@
 package com.sosnitzka.taiga.traits;
 
+import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,14 +31,12 @@ public class TraitCongenial extends AbstractTrait {
             if (TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand()), identifier)) {
                 ItemStack tool = ((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand();
                 String name = e.getEntity().getName();
-
                 NBTTagCompound tag = TagUtil.getExtraTag(tool);
-                Data data = Data.read(tag);
-                if (data.killed) {
+                Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
+                if (data.name != "") {
                     return;
                 }
-                data.mobname = name;
-                data.killed = true;
+                data.name = name;
                 data.write(tag);
                 assert tool != null;
                 TagUtil.setExtraTag(tool, tag);
@@ -50,11 +49,11 @@ public class TraitCongenial extends AbstractTrait {
         World w = player.getEntityWorld();
         if (!w.isRemote) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
-            Data data = Data.read(tag);
-            if (!data.killed) {
+            Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
+            if (data.name == "") {
                 return damage;
             }
-            if (!data.mobname.equals(target.getName())) {
+            if (!data.name.equals(target.getName())) {
                 return damage / (random.nextInt(5) + 5);
             }
             float x = (1 + random.nextFloat() * 9);
@@ -67,28 +66,12 @@ public class TraitCongenial extends AbstractTrait {
     public void onItemTooltip(ItemTooltipEvent e) {
         ItemStack tool = e.getItemStack();
         if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
-            String name;
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
-            Data data = Data.read(tag);
-            if (!data.killed) name = "---";
-            else name = data.mobname;
-            e.getToolTip().add(TextFormatting.DARK_PURPLE + "Bound to: " + TextFormatting.LIGHT_PURPLE + name);
-        }
-    }
-
-
-    public static class Data {
-        String mobname;
-        Boolean killed;
-        public static Data read(NBTTagCompound tag) {
-            Data data = new Data();
-            data.mobname = tag.getString("mobname");
-            data.killed = tag.getBoolean("killed");
-            return data;
-        }
-        public void write(NBTTagCompound tag) {
-            tag.setString("mobname", mobname);
-            tag.setBoolean("killed", killed);
+            Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
+            if (data.name == "") e.getToolTip().add(TextFormatting.LIGHT_PURPLE + "Unbound");
+            else {
+                e.getToolTip().add(TextFormatting.DARK_PURPLE + "Bound to: " + TextFormatting.LIGHT_PURPLE + data.name);
+            }
         }
     }
 
