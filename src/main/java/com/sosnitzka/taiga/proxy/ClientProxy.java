@@ -66,18 +66,18 @@ public class ClientProxy extends CommonProxy {
 
     public void setRenderInfo(final Material material) {
 
-        if (material.equals(adamantite)) specialRender(material, 0xd55cdf, 0.5f, 0.6f, 0.2f);
-        else if (material.equals(solarium)) specialRender(material, 0xFFDD11, 0.7f, 0.3f, 0.1f);
-        else if (material.equals(proxideum)) specialRender(material, 0x2d8f8b, 0.4f, 0.3f, 0.1f);
-        else if (material.equals(meteorite)) specialRender(material, 0xaaaaaa, 0.6f, 0.8f, 0.0f);
-        else if (material.equals(tiberium)) specialRender(material, 0x33ff33, 0.5f, 0.2f, 0.1f);
-        else if (material.equals(bismuth)) specialRender(material, 0xffffff, 0.3f, 0.0f, 0.0f);
-        else if (material.equals(bysmuid)) specialRender(material, 0xccccee, 0.6f, 0.2f, 0.0f);
-        else if (material.equals(imperomite)) specialRender(material, 0x8decaf, 0.8f, 0.5f, -0.0f);
-        else if (material.equals(noctunyx)) specialRender(material, 0xce70e8, 0.5f, 0.2f, 0.3f);
-        else if (material.equals(nucleum)) specialRender(material, 0xd9f446, 1.0f, 0.4f, 0.3f);
-        else if (material.equals(dyonite)) specialRender(material, 0xffe240, 0.6f, 1.0f, 0.2f);
-        else if (material.equals(arcanite)) specialRender(material, 0x5e5499, 0.6f, 0.8f, 0.2f);
+        if (material.equals(material_adamantite)) specialRender(material, 0xd55cdf, 0.5f, 0.6f, 0.2f);
+        else if (material.equals(material_solarium)) specialRender(material, 0xFFDD11, 0.7f, 0.3f, 0.1f);
+        else if (material.equals(material_proxideum)) specialRender(material, 0x2d8f8b, 0.4f, 0.3f, 0.1f);
+        else if (material.equals(material_uru)) specialRender(material, 0xaaaaaa, 0.6f, 0.8f, 0.0f);
+        else if (material.equals(material_tiberium)) specialRender(material, 0x33ff33, 0.5f, 0.2f, 0.1f);
+        else if (material.equals(material_bismuth)) specialRender(material, 0xffffff, 0.3f, 0.0f, 0.0f);
+        else if (material.equals(material_bysmuid)) specialRender(material, 0xccccee, 0.6f, 0.2f, 0.0f);
+        else if (material.equals(material_imperomite)) specialRender(material, 0x8decaf, 0.8f, 0.5f, -0.0f);
+        else if (material.equals(material_noctune)) specialRender(material, 0xce70e8, 0.5f, 0.2f, 0.3f);
+        else if (material.equals(material_nucleum)) specialRender(material, 0xd9f446, 1.0f, 0.4f, 0.3f);
+        else if (material.equals(material_dyonite)) specialRender(material, 0xffe240, 0.6f, 1.0f, 0.2f);
+        else if (material.equals(material_arcanite)) specialRender(material, 0x5e5499, 0.6f, 0.8f, 0.2f);
         else {
             material.setRenderInfo(new MaterialRenderInfo.BlockTexture("taiga:blocks/" + material.getIdentifier() + "_block"));
         }

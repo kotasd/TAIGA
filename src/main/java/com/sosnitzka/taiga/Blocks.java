@@ -14,7 +14,8 @@ import org.apache.commons.lang3.StringUtils;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
-import static com.sosnitzka.taiga.MaterialTraits.*;
+import static com.sosnitzka.taiga.MaterialTraits.TITANITE;
+import static com.sosnitzka.taiga.MaterialTraits.VIBRANIUM;
 import static com.sosnitzka.taiga.util.Utils.PREFIX_BLOCK;
 import static com.sosnitzka.taiga.util.Utils.PREFIX_ORE;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
@@ -31,26 +32,26 @@ public class Blocks {
     public static Block slaggoldOre = new BasicBlock("slaggold_ore", Material.ROCK, 3.0f, 5.0f, IRON);
 
     // Ores
+    // Group: Arcane
+    public static Block tiberiumOre = new BlockTiberium();
+    public static Block aurodiumOre = new BasicBlock("aurodium_ore", Material.ROCK, 13.0f, 12f, TITANITE, PREFIX_ORE);
+    public static Block prometheumOre = new BasicBlock("prometheum_ore", Material.ROCK, 35.0f, 12f, COBALT, 0.4f, PREFIX_ORE);
+    public static Block arcaniteOre = new BasicBlock("arcanite_ore", Material.ROCK, 23.0f, 12f, TITANITE, PREFIX_ORE);
     // Group: Solide
     public static Block titaniteOre = new BasicBlock("titanite_ore", Material.ROCK, 55.0f, 40f, TITANITE, PREFIX_ORE);
-    public static Block meteoriteOre = new BasicBlock("meteorite_ore", Material.ROCK, 60.0f, 50f, METEORITE, PREFIX_ORE);
+    public static Block mythrilOre = new BasicBlock("mytrhil_ore", Material.ROCK, 80.0f, 70f, VIBRANIUM, PREFIX_ORE);
+    public static Block uruOre = new BasicBlock("uru_ore", Material.ROCK, 60.0f, 50f, TITANITE, PREFIX_ORE);
     public static Block vibraniumOre = new BasicBlock("vibranium_ore", Material.ROCK, 70.0f, 60f, VIBRANIUM, PREFIX_ORE);
-    public static Block adamantiteOre = new BasicBlock("adamantite_ore", Material.ROCK, 80.0f, 70f, ADAMANTITE, PREFIX_ORE);
-    // Group: Arcane
-    public static Block prometheumOre = new BasicBlock("prometheum_ore", Material.ROCK, 35.0f, 12f, COBALT, 0.4f, PREFIX_ORE);
-    public static Block rubiumOre = new BasicBlock("rubium_ore", Material.ROCK, 13.0f, 12f, TITANITE, PREFIX_ORE);
-    public static Block tiberiumOre = new BlockTiberium();
-    public static Block arcaniteOre = new BasicBlock("arcanite_ore", Material.ROCK, 23.0f, 12f, METEORITE, PREFIX_ORE);
     // Group: Etheri
     public static Block eterniteOre = new BasicBlock("eternite_ore", Material.ROCK, 24.0f, 15f, COBALT, PREFIX_ORE);
     public static Block mythrilOre = new BasicBlock("mythril_ore", Material.ROCK, 25.0f, 15f, TITANITE, PREFIX_ORE);
-    public static Block palladiumOre = new BasicBlock("palladium_ore", Material.ROCK, 25.0f, 15f, METEORITE, 0.4f, PREFIX_ORE);
+    public static Block palladiumOre = new BasicBlock("palladium_ore", Material.ROCK, 25.0f, 15f, TITANITE, 0.4f, PREFIX_ORE);
     public static Block ignititeOre = new BasicBlock("ignitite_ore", Material.ROCK, 23.0f, 15f, VIBRANIUM, PREFIX_ORE);
     // Group: Ratio
     public static Block violiumOre = new BasicBlock("violium_ore", Material.ROCK, 13.0f, 10f, COBALT, PREFIX_ORE);
     public static Block bismuthOre = new BasicBlock("bismuth_ore", Material.ROCK, 8.0f, 5f, OBSIDIAN, PREFIX_ORE);
     public static Block mindoriteOre = new BasicBlock("mindorite_ore", Material.ROCK, 12.0f, 10f, TITANITE, PREFIX_ORE);
-    public static Block karmesineOre = new BasicBlock("karmesine_ore", Material.ROCK, 13.0f, 10f, METEORITE, PREFIX_ORE);
+    public static Block karmesineOre = new BasicBlock("karmesine_ore", Material.ROCK, 13.0f, 10f, TITANITE, PREFIX_ORE);
 
     // Blocks
     // Group: Solide

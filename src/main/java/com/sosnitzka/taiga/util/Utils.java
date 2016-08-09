@@ -36,19 +36,19 @@ public class Utils {
         FluidRegistry.addBucketForFluid(fluid);
     }
 
-    public static void registerTinkerAlloys(Fluid alloy, int out, Fluid first, int inOne, Fluid second, int inTwo) {
+    public static void registerTinkerAlloys(Fluid alloy, Fluid first, Fluid second) {
         NBTTagList tagList = new NBTTagList();
         NBTTagCompound fluid = new NBTTagCompound();
         fluid.setString("FluidName", alloy.getName());
-        fluid.setInteger("Amount", out);
+        fluid.setInteger("Amount", 5);
         tagList.appendTag(fluid);
         fluid = new NBTTagCompound();
         fluid.setString("FluidName", first.getName());
-        fluid.setInteger("Amount", inOne);
+        fluid.setInteger("Amount", 4);
         tagList.appendTag(fluid);
         fluid = new NBTTagCompound();
         fluid.setString("FluidName", second.getName());
-        fluid.setInteger("Amount", inTwo);
+        fluid.setInteger("Amount", 2);
         tagList.appendTag(fluid);
 
         NBTTagCompound message = new NBTTagCompound();
@@ -56,23 +56,23 @@ public class Utils {
         FMLInterModComms.sendMessage("tconstruct", "alloy", message);
     }
 
-    public static void registerTinkerAlloys(Fluid alloy, int out, Fluid first, int inOne, Fluid second, int inTwo, Fluid third, int inThree) {
+    public static void registerTinkerAlloys(Fluid alloy, Fluid first, Fluid second, Fluid third) {
         NBTTagList tagList = new NBTTagList();
         NBTTagCompound fluid = new NBTTagCompound();
         fluid.setString("FluidName", alloy.getName());
-        fluid.setInteger("Amount", out);
+        fluid.setInteger("Amount", 6);
         tagList.appendTag(fluid);
         fluid = new NBTTagCompound();
         fluid.setString("FluidName", first.getName());
-        fluid.setInteger("Amount", inOne);
+        fluid.setInteger("Amount", 4);
         tagList.appendTag(fluid);
         fluid = new NBTTagCompound();
         fluid.setString("FluidName", second.getName());
-        fluid.setInteger("Amount", inTwo);
+        fluid.setInteger("Amount", 2);
         tagList.appendTag(fluid);
         fluid = new NBTTagCompound();
         fluid.setString("FluidName", third.getName());
-        fluid.setInteger("Amount", inThree);
+        fluid.setInteger("Amount", 1);
         tagList.appendTag(fluid);
 
         NBTTagCompound message = new NBTTagCompound();

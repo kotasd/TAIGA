@@ -65,7 +65,6 @@ public class TraitSoulEater extends AbstractTrait {
             if (data.killcount != 0) {
                 e.getToolTip().add(TextFormatting.WHITE + "Killed: " + TextFormatting.WHITE + data.killcount);
                 e.getToolTip().add(TextFormatting.WHITE + "Bonus: " + TextFormatting.WHITE + data.bonus);
-                e.getToolTip().add(TextFormatting.WHITE + "Last Health: " + TextFormatting.WHITE + data.health);
             }
         }
     }
