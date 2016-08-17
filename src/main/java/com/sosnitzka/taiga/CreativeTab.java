@@ -5,7 +5,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 import static com.sosnitzka.taiga.Blocks.adamantiteBlock;
-import static com.sosnitzka.taiga.Items.noctunyxIngot;
+import static com.sosnitzka.taiga.Items.noctuneIngot;
 
 public class CreativeTab {
 
@@ -19,7 +19,7 @@ public class CreativeTab {
     public static final CreativeTabs tabTaigaItem = new CreativeTabs("taiga_item") {
         @Override
         public Item getTabIconItem() {
-            return noctunyxIngot;
+            return noctuneIngot;
         }
     };
 

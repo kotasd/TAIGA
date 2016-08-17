@@ -10,6 +10,6 @@ public class Alloys {
      * Registers alloying in the smeltery
      */
     static void register() {
-        registerTinkerAlloys(molten_rednitronite, molten_tiberium, molten_vibranium, molten_nitro);
+        registerTinkerAlloys(moltenRednitronite, moltenTiberium, moltenVibranium, molten_nitro);
     }
 }

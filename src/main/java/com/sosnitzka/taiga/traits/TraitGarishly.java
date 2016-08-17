@@ -44,10 +44,10 @@ public class TraitGarishly extends AbstractTrait {
                         i = new ItemStack(Items.BLAZE_ROD, random.nextInt(3));
                         break;
                     case 2:
-                        i = new ItemStack(glimmerstone_dust, random.nextInt(3));
+                        i = new ItemStack(glimmerstoneDust, random.nextInt(3));
                         break;
                     case 3:
-                        i = new ItemStack(luminar_dust, random.nextInt(3));
+                        i = new ItemStack(luminarDust, random.nextInt(3));
                         break;
                     case 4:
                         i = new ItemStack(Items.COAL, random.nextInt(3));

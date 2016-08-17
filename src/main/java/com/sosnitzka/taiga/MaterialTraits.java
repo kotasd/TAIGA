@@ -56,50 +56,50 @@ public class MaterialTraits {
      * .addTrait(z)
      */
 
-    public static Material material_tiberium = new Material("tiberium", 0xff7ac14d);
-    public static Material material_aurodium = new Material("aurodium", 0xffff7c7c);
-    public static Material material_prometheum = new Material("prometheum", 0xff29304a);
-    public static Material material_arcanite = new Material("arcanite", 0xff8e3e84);
+    public static Material materialTiberium = new Material("tiberium", 0xff7ac14d);
+    public static Material materialAurodium = new Material("aurodium", 0xffff7c7c);
+    public static Material materialPrometheum = new Material("prometheum", 0xff29304a);
+    public static Material materialArcanite = new Material("arcanite", 0xff8e3e84);
 
-    public static Material material_titanite = new Material("titanite", 0xffefefef);
-    public static Material material_mythril = new Material("mythril", 0xffd1eed3);
-    public static Material material_uru = new Material("uru", 0xff303030);
-    public static Material material_vibranium = new Material("vibranium", 0xffc8e3f3);
+    public static Material materialTitanite = new Material("titanite", 0xffefefef);
+    public static Material materialMythril = new Material("mythril", 0xffd1eed3);
+    public static Material materialUru = new Material("uru", 0xff303030);
+    public static Material materialVibranium = new Material("vibranium", 0xffc8e3f3);
 
-    public static Material material_eternite = new Material("eternite", 0xffded9a3);
-    public static Material material_fractoryte = new Material("fractoryte", 0xff752d2d);
-    public static Material material_palladium = new Material("palladium", 0xfff89708);
-    public static Material material_ignitite = new Material("ignitite", 0xffbf1616);
+    public static Material materialEternite = new Material("eternite", 0xffded9a3);
+    public static Material materialFractoryte = new Material("fractoryte", 0xff752d2d);
+    public static Material materialPalladium = new Material("palladium", 0xfff89708);
+    public static Material materialIgnitite = new Material("ignitite", 0xffbf1616);
 
-    public static Material material_bismuth = new Material("bismuth", 0xffbfbfbf);
-    public static Material material_jauxite = new Material("jauxite", 0xff74d8ff);
-    public static Material material_violium = new Material("violium", 0xff8781ee);
-    public static Material material_karmesine = new Material("karmesine", 0xffff2e2e);
+    public static Material materialBismuth = new Material("bismuth", 0xffbfbfbf);
+    public static Material materialJauxite = new Material("jauxite", 0xff74d8ff);
+    public static Material materialViolium = new Material("violium", 0xff8781ee);
+    public static Material materialKarmesine = new Material("karmesine", 0xffff2e2e);
 
-    public static Material material_dyonite = new Material("dyonite", 0xFFFFFFFF);
-    public static Material material_cryptogen = new Material("cryptogen", 0xffFFFFFF);
-    public static Material material_proxideum = new Material("proxideum", 0xffFFFFFF);
-    public static Material material_necrodermite = new Material("necrodermite", 0xffFFFFFF);
-    public static Material material_noctune = new Material("noctune", 0xffFFFFFF);
-    public static Material material_terramite = new Material("terramite", 0xffFFFFFF);
-    public static Material material_niobine = new Material("niobine", 0xffFFFFFF);
-    public static Material material_imperomite = new Material("imperomite", 0xffFFFFFF);
-    public static Material material_dysprosanium = new Material("dysprosanium", 0xffFFFFFF);
-    public static Material material_solarium = new Material("solarium", 0xffFFFFFF);
-    public static Material material_nihilite = new Material("nihilite", 0xffFFFFFF);
-    public static Material material_adamantite = new Material("adamantite", 0xffFFFFFF);
-    public static Material material_invalite = new Material("invalite", 0xffFFFFFF);
-    public static Material material_bysmuid = new Material("bysmudid", 0xffFFFFFF);
-    public static Material material_seismodium = new Material("seismodium", 0xffFFFFFF);
-    public static Material material_seismolite = new Material("seismolite", 0xffFFFFFF);
-    public static Material material_nucleum = new Material("nucleum", 0xffFFFFFF);
-    public static Material material_lumixyl = new Material("lumixyl", 0xffFFFFFF);
-    public static Material material_bluenitronite = new Material("bluenitronite", 0xffFFFFFF);
-    public static Material material_rednitronite = new Material("rednitronite", 0xffFFFFFF);
-    public static Material material_radiocite = new Material("radiocite", 0xffFFFFFF);
-    public static Material material_turbidium = new Material("turbidium", 0xffFFFFFF);
-    public static Material material_ultranite = new Material("ultranite", 0xffFFFFFF);
-    public static Material material_astrium = new Material("astrium", 0xffFFFFFF);
+    public static Material materialDyonite = new Material("dyonite", 0xFFFFFFFF);
+    public static Material materialCryptogen = new Material("cryptogen", 0xffFFFFFF);
+    public static Material materialProxideum = new Material("proxideum", 0xffFFFFFF);
+    public static Material materialNecrodermite = new Material("necrodermite", 0xffFFFFFF);
+    public static Material materialNoctune = new Material("noctune", 0xffFFFFFF);
+    public static Material materialTerramite = new Material("terramite", 0xffFFFFFF);
+    public static Material materialNiobine = new Material("niobine", 0xffFFFFFF);
+    public static Material materialImperomite = new Material("imperomite", 0xffFFFFFF);
+    public static Material materialDysprosanium = new Material("dysprosanium", 0xffFFFFFF);
+    public static Material materialSolarium = new Material("solarium", 0xffFFFFFF);
+    public static Material materialNihilite = new Material("nihilite", 0xffFFFFFF);
+    public static Material materialAdamantite = new Material("adamantite", 0xffFFFFFF);
+    public static Material materialInvalite = new Material("invalite", 0xffFFFFFF);
+    public static Material materialBysmuid = new Material("bysmudid", 0xffFFFFFF);
+    public static Material materialSeismodium = new Material("seismodium", 0xffFFFFFF);
+    public static Material materialSeismolite = new Material("seismolite", 0xffFFFFFF);
+    public static Material materialNucleum = new Material("nucleum", 0xffFFFFFF);
+    public static Material materialLumixyl = new Material("lumixyl", 0xffFFFFFF);
+    public static Material materialBluenitronite = new Material("bluenitronite", 0xffFFFFFF);
+    public static Material materialRednitronite = new Material("rednitronite", 0xffFFFFFF);
+    public static Material materialRadiocite = new Material("radiocite", 0xffFFFFFF);
+    public static Material materialTurbidium = new Material("turbidium", 0xffFFFFFF);
+    public static Material materialUltranite = new Material("ultranite", 0xffFFFFFF);
+    public static Material materialAstrium = new Material("astrium", 0xffFFFFFF);
 
 
 }

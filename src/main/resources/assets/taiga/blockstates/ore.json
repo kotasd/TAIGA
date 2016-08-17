@@ -1,0 +1,90 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "taiga:block_all"
+  },
+  "variants": {
+    "type": {
+      "tiberium": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_tiberium"
+        }
+      },
+      "aurodium": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_aurodium"
+        }
+      },
+      "prometheum": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_prometheum"
+        }
+      },
+      "arcanite": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_arcanite"
+        }
+      },
+      "titanite": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_titanite"
+        }
+      },
+      "mythril": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_mythril"
+        }
+      },
+      "uru": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_uru"
+        }
+      },
+      "vibranium": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_vibranium"
+        }
+      },
+      "eternite": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_eternite"
+        }
+      },
+      "fractoryte": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_fractoryte"
+        }
+      },
+      "palladium": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_palladium"
+        }
+      },
+      "ignitite": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_ignitite"
+        }
+      },
+      "bismuth": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_bismuth"
+        }
+      },
+      "jauxite": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_jauxite"
+        }
+      },
+      "violium": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_violium"
+        }
+      },
+      "karmesine": {
+        "textures": {
+          "overlay": "taiga:blocks/ore_karmesine"
+        }
+      }
+    }
+  }
+}

@@ -44,15 +44,15 @@ public class ZWorldGen implements IWorldGenerator {
         Generator.generateOre(karmesineOre.getDefaultState(), random, x, z, world, (int) (35 * karmesineFactor * oreFactorGeneral), 16, 48, 2, 8);
         Generator.generateOre(bismuthOre.getDefaultState(), random, x, z, world, (int) (40 * bismuthFactor * oreFactorGeneral), 50, 130, 2, 4);
         Generator.generateOre(mythrilOre.getDefaultState(), random, x, z, world, (int) (34 * mythrilFactor * oreFactorGeneral), 16, 32, 2, 8);
-        Generator.generateOre(meteoriteOre.getDefaultState(), random, x, z, world, (int) (10 * meteoriteFactor * oreFactorGeneral), 0, 32, 2, 25);
+        Generator.generateOre(uruOre.getDefaultState(), random, x, z, world, (int) (10 * meteoriteFactor * oreFactorGeneral), 0, 32, 2, 25);
         Generator.generateOre(mindoriteOre.getDefaultState(), Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.DIORITE, random, x, z, world, (int) (120 * mindoriteFactor * oreFactorGeneral), 16, 96, 2, 8);
         Generator.generateOre(arcaniteOre.getDefaultState(), Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.GRANITE, random, x, z, world, (int) (120 * arcaniteFactor * oreFactorGeneral), 16, 96, 2, 8);
         Generator.generateOre(eterniteOre.getDefaultState(), Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.ANDESITE, random, x, z, world, (int) (120 * eterniteFactor * oreFactorGeneral), 16, 96, 2, 8);
     }
 
     private void end(Random random, int x, int z, World world) {
-        Generator.generateEndOre(adamantiteOre.getDefaultState(), random, x, z, world, (int) (15 * adamantiteFactor * oreFactorGeneral), 10, 35, 2, 8);
-        Generator.generateEndOre(rubiumOre.getDefaultState(), random, x, z, world, (int) (15 * rubiumFactor * oreFactorGeneral), 10, 65, 2, 8);
+        Generator.generateEndOre(mythrilOre.getDefaultState(), random, x, z, world, (int) (15 * adamantiteFactor * oreFactorGeneral), 10, 35, 2, 8);
+        Generator.generateEndOre(aurodiumOre.getDefaultState(), random, x, z, world, (int) (15 * rubiumFactor * oreFactorGeneral), 10, 65, 2, 8);
         Generator.generateEndOre(ignititeOre.getDefaultState(), random, x, z, world, (int) (15 * ignititeFactor * oreFactorGeneral), 10, 45, 2, 8);
         Generator.generateEndOre(violiumOre.getDefaultState(), random, x, z, world, (int) (15 * violiumFactor * oreFactorGeneral), 10, 55, 2, 8);
 

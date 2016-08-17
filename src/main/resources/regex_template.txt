@@ -1,0 +1,9 @@
+blockstates
+//ore
+\t"\1": \{\n\t\t"textures": \{ "overlay": "taiga:blocks/ore_\1" \}\n\t\},
+//block
+\t"\1": \{\n\t\t"textures": \{ "overlay": "taiga:blocks/block_\1" \}\n\t\},
+
+//recipe
+
+GameRegistry.addShapelessRecipe\(new ItemStack\(\1Nugget, 9\), new ItemStack\(\1Ingot\)\);

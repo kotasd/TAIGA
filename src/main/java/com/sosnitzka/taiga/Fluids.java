@@ -19,51 +19,51 @@ import static slimeknights.tconstruct.library.TinkerRegistry.registerMelting;
 
 public class Fluids {
 
-    public static BasicTinkerFluid molten_tiberium = new BasicTinkerFluid("tiberium", material_tiberium.materialTextColor, 352, 10, 1553);
-    public static BasicTinkerFluid molten_aurodium = new BasicTinkerFluid("aurodium", material_aurodium.materialTextColor, 200, 600, 1653);
-    public static BasicTinkerFluid molten_prometheum = new BasicTinkerFluid("prometheum", material_prometheum.materialTextColor, 786, 2, 2256);
-    public static BasicTinkerFluid molten_arcanite = new BasicTinkerFluid("arcanite", material_arcanite.materialTextColor, 538, 8, 3768);
+    public static BasicTinkerFluid moltenTiberium = new BasicTinkerFluid("tiberium", materialTiberium.materialTextColor, 352, 10, 1553);
+    public static BasicTinkerFluid moltenAurodium = new BasicTinkerFluid("aurodium", materialAurodium.materialTextColor, 200, 600, 1653);
+    public static BasicTinkerFluid moltenPrometheum = new BasicTinkerFluid("prometheum", materialPrometheum.materialTextColor, 786, 2, 2256);
+    public static BasicTinkerFluid moltenArcanite = new BasicTinkerFluid("arcanite", materialArcanite.materialTextColor, 538, 8, 3768);
 
-    public static BasicTinkerFluid molten_titanite = new BasicTinkerFluid("titanite", material_titanite.materialTextColor, 942, 7, 1858);
-    public static BasicTinkerFluid molten_mythril = new BasicTinkerFluid("mythril", material_mythril.materialTextColor, 841, 10, 1579);
-    public static BasicTinkerFluid molten_uru = new BasicTinkerFluid("uru", material_uru.materialTextColor, 942, 10, 2588);
-    public static BasicTinkerFluid molten_vibranium = new BasicTinkerFluid("vibranium", material_vibranium.materialTextColor, 1050, 9, 3402);
+    public static BasicTinkerFluid moltenTitanite = new BasicTinkerFluid("titanite", materialTitanite.materialTextColor, 942, 7, 1858);
+    public static BasicTinkerFluid moltenMythril = new BasicTinkerFluid("mythril", materialMythril.materialTextColor, 841, 10, 1579);
+    public static BasicTinkerFluid moltenUru = new BasicTinkerFluid("uru", materialUru.materialTextColor, 942, 10, 2588);
+    public static BasicTinkerFluid moltenVibranium = new BasicTinkerFluid("vibranium", materialVibranium.materialTextColor, 1050, 9, 3402);
 
-    public static BasicTinkerFluid molten_eternite = new BasicTinkerFluid("eternite", material_eternite.materialTextColor, 542, 10, 3980);
-    public static BasicTinkerFluid molten_fractoryte = new BasicTinkerFluid("fractoryte", material_fractoryte.materialTextColor, 670, 8, 3805);
-    public static BasicTinkerFluid molten_palladium = new BasicTinkerFluid("palladium", material_palladium.materialTextColor, 786, 10, 3302);
-    public static BasicTinkerFluid molten_ignitite = new BasicTinkerFluid("ignitite", material_ignitite.materialTextColor, 422, 9, 3787);
+    public static BasicTinkerFluid moltenEternite = new BasicTinkerFluid("eternite", materialEternite.materialTextColor, 542, 10, 3980);
+    public static BasicTinkerFluid moltenFractoryte = new BasicTinkerFluid("fractoryte", materialFractoryte.materialTextColor, 670, 8, 3805);
+    public static BasicTinkerFluid moltenPalladium = new BasicTinkerFluid("palladium", materialPalladium.materialTextColor, 786, 10, 3302);
+    public static BasicTinkerFluid moltenIgnitite = new BasicTinkerFluid("ignitite", materialIgnitite.materialTextColor, 422, 9, 3787);
 
-    public static BasicTinkerFluid molten_bismuth = new BasicTinkerFluid("bismuth", material_bismuth.materialTextColor, 612, 9, 2552);
-    public static BasicTinkerFluid molten_jauxite = new BasicTinkerFluid("jauxite", material_jauxite.materialTextColor, 671, 8, 2956);
-    public static BasicTinkerFluid molten_violum = new BasicTinkerFluid("violium", material_violium.materialTextColor, 875, 10, 3970);
-    public static BasicTinkerFluid molten_karmesine = new BasicTinkerFluid("karmesine", material_karmesine.materialTextColor, 499, 7, 3978);
+    public static BasicTinkerFluid moltenBismuth = new BasicTinkerFluid("bismuth", materialBismuth.materialTextColor, 612, 9, 2552);
+    public static BasicTinkerFluid moltenJauxite = new BasicTinkerFluid("jauxite", materialJauxite.materialTextColor, 671, 8, 2956);
+    public static BasicTinkerFluid moltenViolum = new BasicTinkerFluid("violium", materialViolium.materialTextColor, 875, 10, 3970);
+    public static BasicTinkerFluid moltenKarmesine = new BasicTinkerFluid("karmesine", materialKarmesine.materialTextColor, 499, 7, 3978);
 
 
-    public static BasicTinkerFluid molten_dyonite = new BasicTinkerFluid("dyonite", material_vibranium.materialTextColor, 486, 8, 3269);
-    public static BasicTinkerFluid molten_cryptogen = new BasicTinkerFluid("cryptogen", material_cryptogen.materialTextColor, 560, 10, 3243);
-    public static BasicTinkerFluid molten_proxideum = new BasicTinkerFluid("proxideum", material_proxideum.materialTextColor, 700, 9, 3859);
-    public static BasicTinkerFluid molten_necrodermite = new BasicTinkerFluid("necrotermite", material_necrodermite.materialTextColor, 712, 8, 3983);
-    public static BasicTinkerFluid molten_noctune = new BasicTinkerFluid("noctune", material_noctune.materialTextColor, 712, 8, 3983);
-    public static BasicTinkerFluid molten_terramite = new BasicTinkerFluid("terramite", material_terramite.materialTextColor, 687, 10, 2121);
-    public static BasicTinkerFluid molten_niobine = new BasicTinkerFluid("niobine", material_niobine.materialTextColor, 687, 10, 2121);
-    public static BasicTinkerFluid molten_imperomite = new BasicTinkerFluid("imperomite", material_imperomite.materialTextColor, 510, 10, 2353);
-    public static BasicTinkerFluid molten_dysprosanium = new BasicTinkerFluid("dysprosanium", material_dysprosanium.materialTextColor, 510, 10, 2353);
-    public static BasicTinkerFluid molten_solarium = new BasicTinkerFluid("solarium", material_solarium.materialTextColor, 482, 8, 3232);
-    public static BasicTinkerFluid molten_nihilite = new BasicTinkerFluid("nihilite", material_nihilite.materialTextColor, 680, 10, 2185);
-    public static BasicTinkerFluid molten_adamantite = new BasicTinkerFluid("adamantite", material_adamantite.materialTextColor, 1100, 10, 3597);
-    public static BasicTinkerFluid molten_invalite = new BasicTinkerFluid("invalite", material_invalite.materialTextColor, 680, 10, 2185);
-    public static BasicTinkerFluid molten_bysmuid = new BasicTinkerFluid("bysmuid", material_bysmuid.materialTextColor, 560, 8, 2674);
-    public static BasicTinkerFluid molten_seismodium = new BasicTinkerFluid("seismodium", material_seismodium.materialTextColor, 831, 10, 1837);
-    public static BasicTinkerFluid molten_seismolite = new BasicTinkerFluid("seismolite", material_seismolite.materialTextColor, 831, 10, 1837);
-    public static BasicTinkerFluid molten_nucleum = new BasicTinkerFluid("nucleum", material_nucleum.materialTextColor, 813, 10, 2355);
-    public static BasicTinkerFluid molten_lumixyl = new BasicTinkerFluid("lumixyl", material_lumixyl.materialTextColor, 548, 10, 2165);
-    public static BasicTinkerFluid molten_rednitronite = new BasicTinkerFluid("rednitronite", material_rednitronite.materialTextColor, 680, 10, 2185);
-    public static BasicTinkerFluid molten_bluenitronite = new BasicTinkerFluid("bluenitronite", material_bluenitronite.materialTextColor, 680, 10, 2185);
-    public static BasicTinkerFluid molten_radiocite = new BasicTinkerFluid("radiocite", material_radiocite.materialTextColor, 810, 10, 1525);
-    public static BasicTinkerFluid molten_turbidium = new BasicTinkerFluid("turbidium", material_turbidium.materialTextColor, 810, 10, 1525);
-    public static BasicTinkerFluid molten_ultranite = new BasicTinkerFluid("ultranite", material_ultranite.materialTextColor, 941, 9, 1784);
-    public static BasicTinkerFluid molten_astrium = new BasicTinkerFluid("astrium", material_astrium.materialTextColor, 810, 10, 1525);
+    public static BasicTinkerFluid moltenDyonite = new BasicTinkerFluid("dyonite", materialVibranium.materialTextColor, 486, 8, 3269);
+    public static BasicTinkerFluid moltenCryptogen = new BasicTinkerFluid("cryptogen", materialCryptogen.materialTextColor, 560, 10, 3243);
+    public static BasicTinkerFluid moltenProxideum = new BasicTinkerFluid("proxideum", materialProxideum.materialTextColor, 700, 9, 3859);
+    public static BasicTinkerFluid moltenNecrodermite = new BasicTinkerFluid("necrotermite", materialNecrodermite.materialTextColor, 712, 8, 3983);
+    public static BasicTinkerFluid moltenNoctune = new BasicTinkerFluid("noctune", materialNoctune.materialTextColor, 712, 8, 3983);
+    public static BasicTinkerFluid moltenNiobine = new BasicTinkerFluid("niobine", materialNiobine.materialTextColor, 687, 10, 2121);
+    public static BasicTinkerFluid moltenTerramite = new BasicTinkerFluid("terramite", materialTerramite.materialTextColor, 687, 10, 2121);
+    public static BasicTinkerFluid moltenImperomite = new BasicTinkerFluid("imperomite", materialImperomite.materialTextColor, 510, 10, 2353);
+    public static BasicTinkerFluid moltenDysprosanium = new BasicTinkerFluid("dysprosanium", materialDysprosanium.materialTextColor, 510, 10, 2353);
+    public static BasicTinkerFluid moltenSolarium = new BasicTinkerFluid("solarium", materialSolarium.materialTextColor, 482, 8, 3232);
+    public static BasicTinkerFluid moltenNihilite = new BasicTinkerFluid("nihilite", materialNihilite.materialTextColor, 680, 10, 2185);
+    public static BasicTinkerFluid moltenAdamantite = new BasicTinkerFluid("adamantite", materialAdamantite.materialTextColor, 1100, 10, 3597);
+    public static BasicTinkerFluid moltenInvalite = new BasicTinkerFluid("invalite", materialInvalite.materialTextColor, 680, 10, 2185);
+    public static BasicTinkerFluid moltenBysmuid = new BasicTinkerFluid("bysmuid", materialBysmuid.materialTextColor, 560, 8, 2674);
+    public static BasicTinkerFluid moltenSeismodium = new BasicTinkerFluid("seismodium", materialSeismodium.materialTextColor, 831, 10, 1837);
+    public static BasicTinkerFluid moltenSeismolite = new BasicTinkerFluid("seismolite", materialSeismolite.materialTextColor, 831, 10, 1837);
+    public static BasicTinkerFluid moltenNucleum = new BasicTinkerFluid("nucleum", materialNucleum.materialTextColor, 813, 10, 2355);
+    public static BasicTinkerFluid moltenLumixyl = new BasicTinkerFluid("lumixyl", materialLumixyl.materialTextColor, 548, 10, 2165);
+    public static BasicTinkerFluid moltenRednitronite = new BasicTinkerFluid("rednitronite", materialRednitronite.materialTextColor, 680, 10, 2185);
+    public static BasicTinkerFluid moltenBluenitronite = new BasicTinkerFluid("bluenitronite", materialBluenitronite.materialTextColor, 680, 10, 2185);
+    public static BasicTinkerFluid moltenRadiocite = new BasicTinkerFluid("radiocite", materialRadiocite.materialTextColor, 810, 10, 1525);
+    public static BasicTinkerFluid moltenTurbidium = new BasicTinkerFluid("turbidium", materialTurbidium.materialTextColor, 810, 10, 1525);
+    public static BasicTinkerFluid moltenUltranite = new BasicTinkerFluid("ultranite", materialUltranite.materialTextColor, 941, 9, 1784);
+    public static BasicTinkerFluid moltenAstrium = new BasicTinkerFluid("astrium", materialAstrium.materialTextColor, 810, 10, 1525);
 
 
 
@@ -112,13 +112,11 @@ public class Fluids {
      * Registers special smeltery recipes (not alloying)
      */
     static void registerfromItem() {
-        registerMelting(radiant_pearl, radiant_enderium, 72);
-        registerMelting(glimmer_pearl, glimming_enderium, 72);
-        registerMelting(energy_pearl, energy_enderium, 72);
+        registerMelting(radiantPearl, radiant_enderium, 72);
+        registerMelting(glimmerPearl, glimming_enderium, 72);
         registerMelting(glimmercoal, molten_glimmercoal, 72);
-        registerMelting(nitro_brick, molten_nitro, 72);
-        registerMelting(anthracite_dust, molten_anthracite, 72);
-        registerMelting(spectrum_dust, molten_spectrum, 72);
+        registerMelting(anthraciteDust, molten_anthracite, 72);
+        registerMelting(spectrumDust, molten_spectrum, 72);
         registerMelting(Blocks.OBSIDIAN, FluidRegistry.LAVA, 432);
         registerMelting(Blocks.NETHERRACK, FluidRegistry.LAVA, 48);
         registerMelting(Blocks.STONE, FluidRegistry.LAVA, 144);
