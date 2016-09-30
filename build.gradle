@@ -85,10 +85,10 @@ dependencies {
     //deobfCompile "codechicken:NotEnoughItems:1.9-${nei_version}:dev"
     // Old: deobfCompile "slimeknights.mantle:Mantle:1.9-0.10.0.jenkins132:deobf"
     // Old: deobfCompile "slimeknights.mantle:Mantle:1.10.2-0.10.3.jenkins161:deobf"
-    deobfCompile "slimeknights.mantle:Mantle:1.10.2-0.10.4.jenkins163:deobf"
-    deobfCompile "mezz.jei:jei_1.10.2:3.7.6.231"
+    deobfCompile "slimeknights.mantle:Mantle:1.10.2-1.0.0.jenkins170:deobf"
+    deobfCompile "mezz.jei:jei_1.10.2:3.9.3.252"
     // Old: deobfCompile "slimeknights:TConstruct:1.10-2.3.3a.jenkins271:deobf"
-    deobfCompile "slimeknights:TConstruct:1.10.2-2.4.0.jenkins314:deobf"
+    deobfCompile "slimeknights:TConstruct:1.10.2-2.5.0.jenkins345:deobf"
     //compile files('libs/TConstruct-1.9-2.3.1.DEV.1d4c1de-deobf.jar')
 }
 

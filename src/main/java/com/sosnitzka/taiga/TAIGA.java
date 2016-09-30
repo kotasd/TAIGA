@@ -50,6 +50,7 @@ public class TAIGA {
 
         Items.register(); // Registers items and its oreDict
         Blocks.register(); // Registers blocks and its items form a long with its oreDict
+        Blocks.preInit();
         Fluids.register(); // Registers all fluids and its buckets
         Fluids.registerfromItem(); // Registers some special smeltery recipes (not alloying)
         Alloys.register(); // Registers alloying recipes
@@ -183,8 +184,6 @@ public class TAIGA {
         registerTinkerMaterial("Turbidium", materialTurbidium, moltenTurbidium, (int) (745 * d), 6.74f * s, 8.74f * a, 0.85f, 75, 93, KARMESINE, false, true);
         registerTinkerMaterial("Ultranite", materialUltranite, moltenUltranite, (int) (1016 * d), 5.72f * s, 6.76f * a, 1.02f, -120, 210, KARMESINE, false, true);
         registerTinkerMaterial("Astrium", materialAstrium, moltenAstrium, (int) (670 * d), 5.28f * s, 9.14f * a, 0.91f, -45, 170, KARMESINE, false, true);
-
-
 
 
 

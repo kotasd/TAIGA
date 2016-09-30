@@ -2,12 +2,15 @@ package com.sosnitzka.taiga;
 
 import com.google.common.base.Joiner;
 import com.sosnitzka.taiga.blocks.BlockLignite;
+import com.sosnitzka.taiga.blocks.BlockMetal;
+import com.sosnitzka.taiga.blocks.BlockOre;
 import com.sosnitzka.taiga.blocks.BlockTiberium;
 import com.sosnitzka.taiga.generic.BasicBlock;
 import com.sosnitzka.taiga.generic.BasicBlockGround;
 import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import org.apache.commons.lang3.StringUtils;
 
@@ -20,6 +23,20 @@ import static com.sosnitzka.taiga.util.Utils.PREFIX_ORE;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 public class Blocks {
+
+    public static BlockOre blockOre;
+    public static BlockMetal blockMetal;
+
+    public static ItemStack oreTiberium;
+    public static ItemStack oreAurodium;
+    public static ItemStack orePrometheum;
+    public static ItemStack oreArcanite;
+
+    public static ItemStack blockTiberium;
+    public static ItemStack blockAurodium;
+    public static ItemStack blockPrometheum;
+    public static ItemStack blockArcanite;
+
 
 
     /// /regular Ores / Blocks without extra abilites
@@ -98,6 +115,19 @@ public class Blocks {
     public static Block ultraniteBlock = new BasicBlock("ultranite_block", Material.ROCK, 13.0f, 12f, TITANITE, PREFIX_BLOCK);
     public static Block astriumBlock = new BasicBlock("astrium_block", Material.ROCK, 13.0f, 12f, KARMESINE, PREFIX_BLOCK);
 
+
+    public static void preInit() {
+        oreTiberium = new ItemStack(blockOre, 1, BlockOre.OreTypes.TIBERIUM.getMeta());
+        oreAurodium = new ItemStack(blockOre, 1, BlockOre.OreTypes.AURODIUM.getMeta());
+        orePrometheum = new ItemStack(blockOre, 1, BlockOre.OreTypes.PROMETHEUM.getMeta());
+        oreArcanite = new ItemStack(blockOre, 1, BlockOre.OreTypes.ARCANITE.getMeta());
+
+        blockTiberium = new ItemStack(blockMetal, 1, BlockMetal.MetalTypes.TIBERIUM.getMeta());
+        blockAurodium = new ItemStack(blockMetal, 1, BlockMetal.MetalTypes.AURODIUM.getMeta());
+        blockPrometheum = new ItemStack(blockMetal, 1, BlockMetal.MetalTypes.PROMETHEUM.getMeta());
+        blockArcanite = new ItemStack(blockMetal, 1, BlockMetal.MetalTypes.ARCANITE.getMeta());
+
+    }
 
     /**
      * Registers all materials' ingots and nuggets <br>
